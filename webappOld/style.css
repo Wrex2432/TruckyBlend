@@ -1,0 +1,276 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+:root {
+  /* App-wide layout */
+  --desktop-width: 480px;         /* Fixed content width on desktop/landscape */
+  --container-padding: 16px;
+
+  /* Join section — mobile defaults */
+  --join-top-mobile: 32%;
+  --join-left-mobile: 50%;
+  --join-transform-mobile: translateX(-50%);
+  --join-width-mobile: 90%;
+  --join-font-mobile: 1.3rem;
+  --join-scale-mobile: 0.7;
+
+  /* Join section — desktop/landscape */
+  --join-top-desktop: 35%;
+  --join-left-desktop: 50%;
+  --join-transform-desktop: translateX(-50%);
+  --join-width-desktop: 320px;
+  --join-font-desktop: 1rem;
+  --join-scale-desktop: 0.9;
+}
+
+/* Hide offscreen elements */
+.go-away { transform: translateX(-10000000000000000px); }
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  touch-action: manipulation;
+  display: grid;
+  place-items: center;
+  background: #0000;
+}
+
+/* Safe-area for notch devices */
+body {
+  padding-top:    calc(env(safe-area-inset-top, 0px));
+  padding-right:  calc(env(safe-area-inset-right, 0px));
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px));
+  padding-left:   calc(env(safe-area-inset-left, 0px));
+}
+
+/* Status text */
+#status {
+  position: absolute;
+  top: 20%;
+  font-size: clamp(1.25rem, 3.5vw, 4rem);
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+/* Main wrapper */
+.mainWrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  width: 100%;
+  height: var(--app-height, 100svh);
+  min-height: 100dvh;
+
+  position: relative;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+/* Background */
+.bg {
+  background-color: lightblue;
+  background-image: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0;
+}
+
+/* Desktop / landscape card */
+@media (min-width: 900px), (orientation: landscape) and (min-height: 500px) {
+  .mainWrapper {
+    width: var(--desktop-width);
+    max-width: var(--desktop-width);
+    height: var(--app-height, 100svh);
+    min-height: 720px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  }
+}
+
+/* Headline */
+#title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: aliceblue;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Join section */
+#codeText {
+  color: aliceblue;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+}
+
+#join-section {
+  position: absolute;
+
+  /* Mobile defaults */
+  top: var(--join-top-mobile);
+  left: var(--join-left-mobile);
+  transform: var(--join-transform-mobile) scale(var(--join-scale-mobile));
+  transform-origin: center center;
+
+  width: var(--join-width-mobile);
+  font-size: var(--join-font-mobile);
+}
+
+#join-section input,
+#join-section select,
+#join-section button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 100%;
+  font-size: inherit;
+}
+
+/* Swap to desktop variables for wide/landscape */
+@media (min-width: 900px), (orientation: landscape) and (min-height: 500px) {
+  #join-section {
+    top: var(--join-top-desktop);
+    left: var(--join-left-desktop);
+    transform: var(--join-transform-desktop) scale(var(--join-scale-desktop));
+    width: var(--join-width-desktop);
+    font-size: var(--join-font-desktop);
+  }
+}
+
+#control-section{
+  margin-top: 17%;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+/* Buttons */
+button {
+  background: #2196f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  border-radius: 8px;
+}
+button:hover { background: #1976d2; }
+
+/* Team visuals & pull button */
+#teamBanner {
+  position: absolute;
+  top: 6%;
+  width: min(90%, 560px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#teamTruck {
+  position: absolute;
+  bottom: 1%;
+  width: min(90%, 560px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#pullBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+#pullBtnImage {
+  width: clamp(160px, 35vw, 260px);
+  touch-action: manipulation;
+}
+
+/* Session badge + clear link */
+#sessionBadge {
+  margin: 8px 0 14px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,.35);
+}
+.linklike {
+  background: transparent;
+  color: #fff;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+/* Version tag */
+#version {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  color: rgba(255,255,255,.85);
+  font-size: 12px;
+}
+
+/* Voucher ribbon (legacy element kept) */
+#voucher-section {
+  color: gold;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,.45);
+  background: #574E50;
+  border: 2px solid whitesmoke;
+  border-radius: 15px;
+  padding: 1.5rem 2px;
+  z-index: 999999999999999;
+}
+
+/* ========================= */
+/* Additions for modal popup */
+/* ========================= */
+
+.hidden { display: none !important; }          /* utility used by JS */
+
+.btn--secondary {                               /* small alt button (Close) */
+  background: #ddd !important;
+  color: #333 !important;
+}
+
+/* Modal container */
+.modal { position: fixed; inset: 0; z-index: 999999; }
+/* Darkened backdrop */
+.modal__backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+}
+/* Dialog panel */
+.modal__dialog {
+  position: relative;
+  max-width: 420px;
+  margin: 15vh auto 0;
+  background: #fff;
+  padding: 24px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+/* Dialog content */
+.modal__title { font-size: 1.3rem; margin-bottom: 12px; }
+.modal__code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.2rem;
+  margin: 8px 0 16px;
+}
+.modal__actions {
+  display: flex; gap: 10px;
+  justify-content: center; margin-bottom: 10px;
+}
+.modal__hint { font-size: 0.85rem; color: #666; }

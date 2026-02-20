@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tug of War | Connect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="mainWrapper bg">
+    <!-- Title / status -->
+    <h1 id="title">Tug of War</h1>
+    <div id="status"></div>
+
+    <!-- Join section (kept same IDs for your CSS positioning) -->
+    <section id="join-section">
+      <div id="codeText">Enter your name and game code</div>
+      <input
+        type="text"
+        id="code"
+        placeholder="Enter game code"
+        maxlength="4"
+        autocomplete="off"
+        style="text-transform:uppercase;"
+      />
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter your name"
+        maxlength="9"
+        autocomplete="off"
+      />
+      <select id="team">
+        <option value="TeamA">Team A</option>
+        <option value="TeamB">Team B</option>
+      </select>
+      <button id="toggleModeBtn" style="display: none;">Switch to Manual</button>
+      <button id="joinBtn">Join Game</button>
+    </section>
+
+    <!-- Control section (kept minimal; visuals handled by CSS) -->
+    <section id="control-section" class="hidden">
+      <h2 id="welcome"></h2>
+
+      <!-- Team visuals -->
+      <img id="teamBanner" class="hidden" alt="Team Banner" />
+      <img id="teamTruck" class="hidden" alt="Team Truck" />
+
+      <!-- Session badge (uses your styling) -->
+      <div id="sessionBadge" class="go-away">
+        <span id="badgeCode"></span><span id="badgeTeam"></span>
+      </div>
+
+      <!-- Pull button uses a single image and swaps src in JS -->
+      <button id="pullBtn" aria-label="Pull!">
+        <img id="pullBtnImage" src="./assets/Button_Active.png" alt="PULL!" />
+      </button>
+    </section>
+
+    <!-- (Legacy label kept; no longer used for layout, but harmless) -->
+    <div id="voucher-section" class="hidden">
+      <span id="voucherText"></span>
+    </div>
+
+    <!-- Voucher Modal (new) -->
+    <div id="voucherModal" class="modal hidden" aria-hidden="true" role="dialog" aria-labelledby="voucherTitle">
+      <div class="modal__backdrop"></div>
+      <div class="modal__dialog">
+        <h3 id="voucherTitle" class="modal__title">🎉 You’ve won a voucher!</h3>
+        <p class="modal__code"><span id="voucherCodeText"></span></p>
+        <div class="modal__actions">
+          <button id="copyVoucherBtn">Copy Code</button>
+          <button id="closeVoucherBtn" class="btn--secondary">Close</button>
+        </div>
+        <p class="modal__hint">This code is saved on your device — you can view it again any time.</p>
+      </div>
+    </div>
+
+    <!-- Utility link (kept your “linklike” styling) -->
+    <button id="clearStateBtn" class="linklike go-away">Clear Saved State</button>
+
+    <div id="version">v1.0</div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
