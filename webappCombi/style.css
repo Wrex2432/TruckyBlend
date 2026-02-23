@@ -17,8 +17,16 @@ body {
 }
 .hidden { display: none !important; }
 
+.bg {
+  background-color: lightblue;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0;
+}
+
 .input-view {
-  background: #0b0f17 url("./assets/new/BG.png") center/cover no-repeat;
+  background-image: url("./assets/inputPageBG.jpg");
   display: grid;
   place-items: center;
   padding: 20px;
@@ -39,24 +47,24 @@ body {
   background-size: 100% 100%;
 }
 
-.input-row-room { background-image: url("./assets/new/Room\ Code.png"); }
-.input-row-username { background-image: url("./assets/new/Screen\ Name.png"); }
-.input-row-fullname { background-image: url("./assets/new/Full\ Name.png"); }
+.input-row-room { background-image: url("./assets/inputRoomCodeBG.jpg"); }
+.input-row-username { background-image: url("./assets/inputUsernameBG.jpg"); }
+.input-row-fullname { background-image: url("./assets/inputFullnameBG.jpg"); }
 
-.label { display: block; font-size: 12px; opacity: 0.85; margin-bottom: 4px; }
+.label { display: block; font-size: 12px; opacity: 0.85; margin-bottom: 4px; color: #111; }
 
 .input {
   width: 100%;
   border: none;
   outline: none;
   background: transparent;
-  color: #fff;
+  color: #000;
   font-size: 16px;
   padding: 2px 0;
   text-transform: uppercase;
 }
 
-.input::placeholder { color: rgba(255, 255, 255, 0.82); }
+.input::placeholder { color: rgba(0, 0, 0, 0.65); }
 #username, #fullName { text-transform: none; }
 
 .btn {
@@ -70,6 +78,16 @@ body {
 }
 .btn.primary { background: #3a8dff; }
 
+.join-image-btn {
+  background: transparent;
+  padding: 0;
+}
+
+.join-image-btn img {
+  width: min(100%, 360px);
+  display: block;
+}
+
 .arena {
   position: relative;
   min-height: 100svh;
@@ -77,7 +95,7 @@ body {
 }
 
 .control-arena {
-  background: #8ec8df url("./assets/background.png") center/cover no-repeat;
+  background-image: url("./assets/background.png");
 }
 
 .team-banner {
@@ -109,11 +127,11 @@ body {
 .tap-image-btn:disabled { opacity: 0.85; }
 
 .end-arena {
-  background: #0b0f17 url("./assets/new/Mobile-YouLose.png") center/cover no-repeat;
+  background-image: url("./assets/endPageLoseBG.jpg");
 }
 
 .end-arena.is-win {
-  background-image: url("./assets/new/Mobile-YouWin.png");
+  background-image: url("./assets/endPageWinBG.jpg");
 }
 
 .end-result {

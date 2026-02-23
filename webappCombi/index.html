@@ -33,7 +33,7 @@
         <div id="toastText" class="toast-text">Error</div>
       </div>
 
-      <section id="viewInput" class="view input-view">
+      <section id="viewInput" class="view input-view bg">
         <div class="input-stage">
           <div class="form">
             <div id="roomCodeWrap" class="input-row input-row-room">
@@ -51,13 +51,15 @@
               <input id="fullName" class="input" type="text" maxlength="80" placeholder="Your full name" />
             </div>
 
-            <button id="btnJoin" class="btn primary" type="button">JOIN</button>
+            <button id="btnJoin" class="btn primary join-image-btn" type="button" aria-label="Join game">
+              <img src="./assets/inputJoinButtonTemp.png" alt="Join" />
+            </button>
           </div>
         </div>
       </section>
 
       <section id="viewControl" class="view hidden">
-        <div class="arena control-arena">
+        <div class="arena control-arena bg">
           <img id="teamBanner" class="team-banner hidden" alt="Team banner" />
 
           <button id="btnTap" class="tap-image-btn" type="button" disabled aria-label="Tap">
@@ -75,7 +77,7 @@
       </section>
 
       <section id="viewEnd" class="view hidden">
-        <div id="endArena" class="arena end-arena">
+        <div id="endArena" class="arena end-arena bg">
           <div id="endResult" class="end-result" aria-live="polite">—</div>
         </div>
       </section>
