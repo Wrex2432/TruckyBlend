@@ -18,7 +18,7 @@ body {
 .hidden { display: none !important; }
 
 .input-view {
-  background: #0b0f17 url("./assets/inputPageBG.jpg") center/cover no-repeat;
+  background: #0b0f17 url("./assets/new/BG.png") center/cover no-repeat;
   display: grid;
   place-items: center;
   padding: 20px;
@@ -39,9 +39,9 @@ body {
   background-size: 100% 100%;
 }
 
-.input-row-room { background-image: url("./assets/inputRoomCodeBG.jpg"); }
-.input-row-username { background-image: url("./assets/inputUsernameBG.jpg"); }
-.input-row-fullname { background-image: url("./assets/inputFullnameBG.jpg"); }
+.input-row-room { background-image: url("./assets/new/Room\ Code.png"); }
+.input-row-username { background-image: url("./assets/new/Screen\ Name.png"); }
+.input-row-fullname { background-image: url("./assets/new/Full\ Name.png"); }
 
 .label { display: block; font-size: 12px; opacity: 0.85; margin-bottom: 4px; }
 
@@ -109,11 +109,11 @@ body {
 .tap-image-btn:disabled { opacity: 0.85; }
 
 .end-arena {
-  background: #0b0f17 url("./assets/endPageLoseBG.jpg") center/cover no-repeat;
+  background: #0b0f17 url("./assets/new/Mobile-YouLose.png") center/cover no-repeat;
 }
 
 .end-arena.is-win {
-  background-image: url("./assets/endPageWinBG.jpg");
+  background-image: url("./assets/new/Mobile-YouWin.png");
 }
 
 .end-result {
