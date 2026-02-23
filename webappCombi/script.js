@@ -43,6 +43,7 @@ const teamBanner = $("teamBanner");
 const teamTruck = $("teamTruck");
 const teamBannerEnd = $("teamBannerEnd");
 const teamTruckEnd = $("teamTruckEnd");
+const endArena = $("endArena");
 
 const devPanel = $("devPanel");
 const tapCountEl = $("tapCount");
@@ -187,10 +188,10 @@ function setTeamUI(idx) {
     if (teamBannerEnd) teamBannerEnd.src = team.banner;
     if (teamTruck) teamTruck.src = team.truck;
     if (teamTruckEnd) teamTruckEnd.src = team.truck;
-    setHidden(teamBanner, false);
-    setHidden(teamTruck, false);
-    setHidden(teamBannerEnd, false);
-    setHidden(teamTruckEnd, false);
+    if (teamBanner) setHidden(teamBanner, false);
+    if (teamTruck) setHidden(teamTruck, false);
+    if (teamBannerEnd) setHidden(teamBannerEnd, false);
+    if (teamTruckEnd) setHidden(teamTruckEnd, false);
   }
   saveSession({ teamIndex });
   setText(endTeam, team.name);
@@ -234,12 +235,15 @@ function goToControl() {
 }
 
 function goToEnd({ won, ttr, gtr, winningTeamLabel, isTie = false }) {
+  clearSession();
   showView("end");
+  if (endArena) {
+    endArena.classList.toggle("is-win", !!won && !isTie);
+  }
   setText(endTTR, typeof ttr === "number" ? String(ttr) : "—");
   setText(endGTR, typeof gtr === "number" ? String(gtr) : "—");
   setText(endTitle, winningTeamLabel ? `GAME OVER — ${winningTeamLabel}` : "GAME OVER");
   setText(endResult, isTie ? "TIE" : won ? "YOU WIN" : "YOU LOSE");
-  saveSession({ won: !!won, ttr, gtr });
 }
 
 function wsSend(obj) {
